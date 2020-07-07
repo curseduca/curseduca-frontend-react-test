@@ -4,7 +4,6 @@
     "description": "Test API",
     "main": "index.js",
     "scripts": {
-        "no-auth-serve": "json-server --watch src/Database/data/db.json",
         "serve": "nodemon src/server.js"
     },
     "dependencies": {
