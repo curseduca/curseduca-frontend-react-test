@@ -38,7 +38,9 @@ export default class Router {
 
             const access_token = this.auth.createToken({ email, password })
             console.log("Access Token generated:", access_token);
-            res.status(200).json({ access_token })
+            res.status(200).json({
+                access_token: access_token
+            })
         })
     }
 

@@ -24,7 +24,7 @@ class Auth {
     }
 
     isAuthenticated({ email, password }) {
-        return this.data.findIndex(user => user.email === email && user.password === password) !== -1
+        return this.data.find(user => user.email === email && user.password === password)
     }
 
 }

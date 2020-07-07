@@ -2,19 +2,16 @@
   {
     "id": 1,
     "email": "dev1@curseduca.com",
-    "password": "dev1",
-    "admin": false
+    "password": "dev1"
   },
   {
     "id": 2,
-    "email": "admin@curseduca.com",
-    "password": "admin",
-    "admin": true
+    "email": "dev2@curseduca.com",
+    "password": "dev2"
   },
   {
     "id": 3,
-    "email": "dev2@curseduca.com",
-    "password": "dev2",
-    "admin": false
+    "email": "dev3@curseduca.com",
+    "password": "dev3"
   }
 ]

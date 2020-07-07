@@ -5,7 +5,16 @@
             "title": "Minha primeira postagem",
             "text": "Essa é a minha <b>primeira postagem</b>!",
             "id_category": 3,
-            "id_user": 2
+            "id_user": 2,
+            "date": "2020-07-07 14:00:00"
+        },
+        {
+            "id": 2,
+            "title": "Meu primeiro artigo!",
+            "text": "<p>Meu primeiro artigo está demais!</p>",
+            "id_category": 3,
+            "id_user": 1,
+            "date": "2020-10-01 08:30:00"
         }
     ],
     "categories": [
