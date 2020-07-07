@@ -1,73 +1,17 @@
-# Curseduca | API para teste de frontend react
+# API para teste de Devs FrontEnd
 
-## Faça o fork deste repositório e crie o seu projeto a partir deste fork.
+## Introdução
+Essa simples API foi criada para servir de fonte de dados para os testes em processos seletivos de desenvolvedores do [Curseduca](https://curseduca.com).
 
-### Para iniciar a instalação das dependências do projeto rode: `npm install`
+![Curseduca](https://curseduca.com/application/images/logo-250px.png)
 
-### Caso seja necessário execute: `npm audit fix`
-
-### Execute o comando `npm run serve` para rodar o projeto usando a autenticação
-### Execute o comando `npm run no-auth-serve` para rodar o projeto sem a autenticação
-
-> Caso haja a necessidade de alterar os parâmetros executados pela API renomeie o arquivo  **.env.example** para **.env** e altere suas propriedades
-
-
-1. `db.json`
-   ```
-    {
-        "cursos": [
-            {
-                "id": 1,
-                "name": "Meu primeiro curso",
-                "valor": 9.90,
-                "quantity": 1,
-                "image": "imagme-do-curse.png"
-            }
-        ],
-        "avaliacoes": [
-            {
-                "id": 1,
-                "rating": 4.5
-            }
-        ],
-        "avaliacao": [
-            {
-                "id_curso": 1,
-                "id_user": 1,
-                "rating": 4.5,
-                "descricao" : "Curso muito bom"
-            }
-        ]
-    }
-   ```
-
-2. `users.json`
-   ```
-      {
-            "users": [{
-                "id": 1,
-                "email": "teste1@teste.com",
-                "password": "123456"
-            },
-            {
-                "id": 2,
-                "email": "teste2@teste.com",
-                "password": "123456"
-            },
-            {
-                "id": 3,
-                "email": "teste3@teste.com",
-                "password": "123456"
-            },
-            {
-                "id": 4,
-                "email": "teste4@teste.com",
-                "password": "123456"
-            },
-            {
-                "id": 5,
-                "email": "teste5@teste.com",
-                "password": "123456"
-            }
-        ]}
-   ```
+## Instruções
+1. Faça o fork [deste repositório](https://github.com/curseduca/curseduca-api-react-test) e crie o seu projeto a partir dele
+2. Clone seu próprio repositório
+3. Inicie a instalação das dependências do projeto excutando `npm install`
+    - Caso seja necessário, execute: `npm audit fix` _(o próprio npm irá te instruir a fazer isso)_
+4. Se precisar alterar as informações padrões do servidor, copie o arquivo **.env.example** para **.env** e altere seus valores
+    - O endereço padrão é: `http://localhost:3000`
+5. Execute o comando `npm run serve` para rodar o servidor
+6. Faça as modificações necessárias para realizar seu teste
+7. Nos avise sobre o término do teste através do email [vagas@curseduca.com](vagas@curseduca.com) com o link para seu repositório 
