@@ -1,36 +1,18 @@
 import { Router } from 'express';
 
 export default class Router {
-    constructor(auth) {
-        this.auth   = auth;
-        this.routes = new Router();
+    constructor(database, auth) {
+        this.database = database;
+        this.auth     = auth;
+        this.routes   = new Router();
         this.init();
     }
 
     init() {
-        this.routes.get('/', (req, res) => res.json({ message: 'Curseduca API - Teste Frontend ' }));
-        this.register()
+        this.routes.get('/', (req, res) => res.json({ message: 'Curseduca API - Teste Frontend' }));
         this.login()
         this.resources()
-    }
-
-    register() {
-        this.routes.post('/auth/register', (req, res) => {
-            console.log("register endpoint called; request body:");
-            console.log(req.body);
-            const { email, password } = req.body;
-
-            if (this.auth.isAuthenticated({ email, password }) === true) {
-                const status = 401;
-                const message = 'Email and Password already exist';
-                res.status(status).json({ status, message });
-                return
-            }
-
-            access_token = this.auth.register(err, data);
-            console.log("Access Token:" + access_token);
-            res.status(200).json({ access_token })
-        })
+        this.users()
     }
 
     login() {
@@ -38,14 +20,24 @@ export default class Router {
             console.log("login endpoint called; request body:");
             console.log(req.body);
             const { email, password } = req.body;
+
+            if (( typeof email == 'undefined') || (! email.length) ||
+                ( typeof password == 'undefined') || (! password.length)) {
+                const status = 400;
+                const message = 'Invalid request';
+                res.status(status).json({ status, message });
+                return;
+            }
+
             if (this.auth.isAuthenticated({ email, password }) === false) {
                 const status = 401
                 const message = 'Incorrect email or password'
                 res.status(status).json({ status, message })
                 return
             }
+
             const access_token = this.auth.createToken({ email, password })
-            console.log("Access Token:" + access_token);
+            console.log("Access Token generated:", access_token);
             res.status(200).json({ access_token })
         })
     }
@@ -75,6 +67,19 @@ export default class Router {
                 const message = 'Error access_token is revoked'
                 res.status(status).json({ status, message })
             }
+        })
+    }
+
+    users() {
+        this.routes.get('/users', (req, res) => {
+            let response = {}
+            this.database.getUsers().forEach((value, key) => {
+                response[value.id] = {
+                    id: value.id,
+                    email: value.email
+                };
+            })
+            res.status(200).json(response)
         })
     }
 }

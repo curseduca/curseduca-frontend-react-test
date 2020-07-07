@@ -12,7 +12,7 @@ class Auth {
     }
 
     init() {
-        this.data = this.database.mapUsers().getUsers();
+        this.data = this.database.getUsers();
     }
 
     createToken(payload) {
@@ -24,28 +24,9 @@ class Auth {
     }
 
     isAuthenticated({ email, password }) {
-        return this.data.users.findIndex(user => user.email === email && user.password === password) !== -1
+        return this.data.findIndex(user => user.email === email && user.password === password) !== -1
     }
 
-    register(err, data) {
-        fs.readFile("./src/Database/data/users.json", (err, data) => {
-            if (err) {
-                return 'erro ao registrar o usuário'
-            };
-
-            var data = JSON.parse(data.toString());
-            var last_item_id = data.users[data.users.length - 1].id;
-
-            data.users.push({ id: last_item_id + 1, email: email, password: password });
-            var writeData = fs.writeFile("./users.json", JSON.stringify(data), (err, result) => {
-                if (err) {
-                    return 'erro ao registrar o usuário'
-                }
-            });
-        });
-
-        return this.createToken({ email, password })
-    }
 }
 
 export default Auth;

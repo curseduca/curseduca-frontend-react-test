@@ -1,25 +1,29 @@
 {
-    "cursos": [
+    "posts": [
         {
             "id": 1,
-            "name": "Meu primeiro curso",
-            "valor": 9.90,
-            "quantity": 1,
-            "image": "imagem-do-curso.png"
+            "title": "Minha primeira postagem",
+            "text": "Essa é a minha <b>primeira postagem</b>!",
+            "id_category": 3,
+            "id_user": 2
         }
     ],
-    "avaliacoes": [
+    "categories": [
         {
             "id": 1,
-            "rating": 4.5
-        }
-    ],
-    "avaliacao": [
+            "name": "Artigos"
+        },
         {
-            "id_curso": 1,
-            "id_user": 1,
-            "rating": 4.5,
-            "descricao" : "Curso muito bom"
+            "id": 2,
+            "name": "Pensamentos"
+        },
+        {
+            "id": 3,
+            "name": "Avisos"
+        },
+        {
+            "id": 4,
+            "name": "Conteúdos"
         }
     ]
 }

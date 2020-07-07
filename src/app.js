@@ -11,7 +11,7 @@ class App {
         this.server   = express();
         this.database = new Database();
         this.auth     = new Auth(this.database);
-        this.router   = new Router(this.auth)
+        this.router   = new Router(this.database, this.auth)
 
         this.middlewares();
         this.routes();
@@ -24,11 +24,12 @@ class App {
 
     routes() {
         this.server.use(this.router.routes);
-        this.server.use(this.database.mapClassifieds());
+        this.server.use(this.database.getMappedRoutes());
     }
 
     exceptionHandler() {
         this.server.use(async (err, req, res, next) => {
+            console.log(err);
             return res.status(500).json({ error: 'Internal server error' });
         });
     }
