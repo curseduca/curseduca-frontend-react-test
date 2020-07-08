@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import * as S from './styles';
 import Login from './login/login';
+import Status from '../../components/UI/status/status';
 
 import useRequest from '../../hooks/request';
 import axios from '../../helpers/axios';
@@ -16,6 +17,7 @@ const Auth = () => {
   return (
     <section>
       <Login setOptions={optionsHandler} />
+      <Status loading={loading} error={error} />
     </section>
   );
 };
