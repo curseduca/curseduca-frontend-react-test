@@ -8,7 +8,7 @@ export const FormWrapper = styled.div`
   border-radius: 4px;
   box-shadow: 0 0 10px #262b48;
   
-  background: #1d1d1d;
+  background: ${({ theme }) => theme.lighter};
   
   *{ 
     margin-bottom: 6px;
@@ -24,11 +24,11 @@ export const Form = styled.form`
 `;
 
 export const InputWrapper = styled.div`
-  box-shadow: 0 0 4px #808080 inset;
+  box-shadow: 0 0 4px ${({ theme }) => theme.primaryBg} inset;
   border-radius: 2px;
   width: 80%;
   
-  background: white;
+  background: ${({ theme }) => theme.color};
   
   :before{ 
     content: ${({ icon }) => `"${icon}"`};
@@ -37,18 +37,18 @@ export const InputWrapper = styled.div`
     display: inline-block;
     padding: 0 6px;
     
-    color: #1d1d1d;
+    color: ${({ theme }) => theme.lighter};
   }
 `;
 
 export const Input = styled.input`
   padding: 6px;
-  color: #1d1d1d;
+  color: ${({ theme }) => theme.lighter};
 
   &[type="submit"]{
     cursor: pointer;
     color: white;
 
-    :hover{ color: #bb86fc; }
+    :hover{ color: ${({ theme }) => theme.hover}; }
   }
 `;
