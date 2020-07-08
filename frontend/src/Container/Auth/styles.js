@@ -1,32 +1,66 @@
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
-export const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh'
-  },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-        theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
+export const FormWrapper = styled.div`
+  width: 80%;
+  padding: 24px;
+  margin: 0 auto;
+
+  border-radius: 4px;
+  box-shadow: 0 0 10px #262b48;
+  
+  background: #1d1d1d;
+  
+  *{ 
+    margin-bottom: 6px;
+    :last-child{ margin: 0; }
   }
-}));
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const InputWrapper = styled.div`
+  box-shadow: 0 0 4px #808080 inset;
+  border-radius: 2px;
+  width: 80%;
+  
+  background: white;
+  
+  :before{ 
+    content: ${({ icon }) => `"${icon}"`};
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    padding: 0 6px;
+    
+    color: #1d1d1d;
+  }
+`;
+
+export const Input = styled.input`
+  padding: 6px;
+  color: #1d1d1d;
+
+  &[type="submit"]{
+    cursor: pointer;
+    color: white;
+
+    :hover{ color: #bb86fc; }
+  }
+`;
+
+export const Title = styled.h1`
+  display: block;
+  margin: 0 auto;
+  padding: 12px;
+
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: ${({ size }) => size || '2em'};
+  
+  color: white;
+`;

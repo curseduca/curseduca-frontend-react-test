@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import * as S from './styles';
 
 const Auth = (props) => {
   const { register, handleSubmit, errors } = useForm();
@@ -10,12 +11,29 @@ const Auth = (props) => {
 
   return (
     <section>
-      <h1>Auth</h1>
-      <form onSubmit={handleSubmit(submitHandler)}>
-        <input ref={register} type="email" name="email" />
-        <input ref={register} type="password" name="password" />
-        <input type="submit" name="button" value="Submit" />
-      </form>
+      <S.FormWrapper>
+        <S.Title>Área de Login</S.Title>
+        <S.Form onSubmit={handleSubmit(submitHandler)}>
+          <S.InputWrapper icon="\f1fa">
+            <S.Input
+              ref={register}
+              type="email"
+              name="email"
+              placeholder="email"
+            />
+          </S.InputWrapper>
+          <S.InputWrapper icon="\f084">
+            <S.Input
+              ref={register}
+              type="password"
+              name="password"
+              placeholder="senha"
+            />
+          </S.InputWrapper>
+          <S.Input type="submit" name="button" value="Login" />
+          <S.Input type="submit" name="button" value="Esqueci a senha" />
+        </S.Form>
+      </S.FormWrapper>
     </section>
   );
 };
