@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as S from '../styles';
+import { Title } from '../../../generalStyles';
 
 const Login = ({ setOptions }) => {
   const { register, handleSubmit, errors } = useForm();
@@ -16,7 +17,7 @@ const Login = ({ setOptions }) => {
 
   return (
     <S.FormWrapper>
-      <S.Title>Área de Login</S.Title>
+      <Title>Área de Login</Title>
       <S.Form onSubmit={handleSubmit(submitHandler)}>
         <S.InputWrapper icon="\f1fa">
           <S.Input
