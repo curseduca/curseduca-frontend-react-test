@@ -1,9 +1,10 @@
 import React from 'react';
+import Auth from './Container/Auth/Auth';
 
 function App() {
   return (
     <div>
-      <h1> Miss me yet ? </h1>
+      <Auth />
     </div>
   );
 }
