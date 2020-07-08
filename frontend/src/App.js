@@ -1,11 +1,14 @@
 import React from 'react';
 import Auth from './Container/Auth/Auth';
+import Layout from './Container/Layout/Layout';
 
 function App() {
   return (
-    <div>
-      <Auth />
-    </div>
+    <Layout>
+      <div>
+        <Auth />
+      </div>
+    </Layout>
   );
 }
 
