@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,6 +45,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* end of reset css */
+
+/* global overrides */
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 
 * { box-sizing: border-box; }
 
