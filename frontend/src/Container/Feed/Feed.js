@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './styles';
+import { Container } from '../../generalStyles';
 
 const Feed = (props) => {
   const mockedPost = {
@@ -12,7 +13,7 @@ const Feed = (props) => {
   };
 
   return (
-    <section>
+    <Container>
       <S.GridContainer>
         <S.ProfileInfo>
           <span>(O)</span>
@@ -29,7 +30,7 @@ const Feed = (props) => {
           <p>{mockedPost.text}</p>
         </S.PostContent>
       </S.GridContainer>
-    </section>
+    </Container>
   );
 };
 

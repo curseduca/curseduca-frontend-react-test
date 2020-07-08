@@ -14,3 +14,8 @@ export const ErrorMessage = styled.p`
   color: lightcoral;
   font-weight: bold;
 `;
+
+export const Container = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
