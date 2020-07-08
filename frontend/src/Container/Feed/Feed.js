@@ -17,7 +17,7 @@ const Feed = (props) => {
       <S.GridContainer>
         <S.ProfileInfo>
           <span>(O)</span>
-          <p>posted by: {mockedPost.title}</p>
+          <p>posted by: {mockedPost.id_user}</p>
           <hr />
           <p>category:{mockedPost.id_category} </p>
         </S.ProfileInfo>
