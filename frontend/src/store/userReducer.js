@@ -1,3 +1,5 @@
+import * as actionTypes from './userActions';
+
 const initState = {
   accessToken: null,
   user: {
@@ -8,9 +10,9 @@ const initState = {
 
 const userReducer = (state = initState, action) => {
   switch (action.type) {
-    case 'SET_TOKEN':
+    case actionTypes.SET_TOKEN:
       return { ...state, acessToken: action.token };
-    case 'SET_USER_INFO':
+    case actionTypes.SET_USER_DATA:
       return { ...state, user: action.user };
     default: return state;
   }
