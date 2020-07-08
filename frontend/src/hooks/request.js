@@ -59,7 +59,7 @@ export default (options, axios) => {
         dispatch({ type: 'ERROR', error: 'Couldn\'t reach server.' });
       }
     }
-  }, [options]);
+  }, [options, axios]);
 
   const clearState = () => dispatch({ type: 'CLEAR' });
 
