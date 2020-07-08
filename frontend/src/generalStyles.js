@@ -5,9 +5,12 @@ export const Title = styled.h1`
   margin: 0 auto;
   padding: 12px;
 
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
   font-size: ${({ size }) => size || '2em'};
-  
   color: ${({ theme }) => theme.color};
+`;
+
+export const ErrorMessage = styled.p`
+  padding: 4px;
+  color: lightcoral;
+  font-weight: bold;
 `;
