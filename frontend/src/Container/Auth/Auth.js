@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import * as S from './styles';
+
+import useRequest from '../../hooks/request';
+import axios from '../../helpers/axios';
 
 const Auth = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
+  const [options, setOptions] = useState(null);
+  const [requestData] = useRequest(options, axios);
+  const { data, loading, error } = requestData;
+
   const submitHandler = (data) => {
-    console.log(data);
+    const req = {
+      method: 'POST',
+      url: '/users',
+      data
+    };
+
+    setOptions(req);
   };
+
+  useEffect(() => {
+    console.log(data);
+    console.log(loading);
+    console.log(error);
+  }, [data, error, loading]);
 
   return (
     <section>
