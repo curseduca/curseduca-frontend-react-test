@@ -1,8 +1,7 @@
 import React from 'react';
-import * as S from './styles';
-import { Container } from '../../generalStyles';
+import { Card, Row, Col } from 'react-bootstrap';
 
-const Feed = (props) => {
+const Feed = () => {
   const mockedPost = {
     id: 1,
     title: 'Minha primeira postagem',
@@ -13,24 +12,31 @@ const Feed = (props) => {
   };
 
   return (
-    <Container>
-      <S.GridContainer>
-        <S.ProfileInfo>
-          <span>(O)</span>
-          <p>posted by: {mockedPost.id_user}</p>
-          <hr />
-          <p>category:{mockedPost.id_category} </p>
-        </S.ProfileInfo>
-        <S.PostMetadata>
-          <p>{mockedPost.date}</p>
-          <p>#{mockedPost.id}</p>
-        </S.PostMetadata>
-        <S.PostContent>
-          <h1>{mockedPost.title}</h1>
-          <p>{mockedPost.text}</p>
-        </S.PostContent>
-      </S.GridContainer>
-    </Container>
+    <Card>
+      <Card.Header>
+        <Row>
+          <Col>
+            <p className="text-left">Postado em: {mockedPost.date}</p>
+          </Col>
+          <Col>
+            <p className="text-right">#{mockedPost.id}</p>
+          </Col>
+        </Row>
+      </Card.Header>
+      <Card.Body>
+        <Row>
+          <Col sm={3}>
+            <span>(O)</span>
+            <p>posted by: {mockedPost.id_user}</p>
+            <p>category:{mockedPost.id_category} </p>
+          </Col>
+          <Col sm={9}>
+            <Card.Title>{mockedPost.title}</Card.Title>
+            <Card.Text>{mockedPost.text}</Card.Text>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
   );
 };
 
