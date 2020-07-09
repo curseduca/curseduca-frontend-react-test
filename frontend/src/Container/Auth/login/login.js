@@ -1,10 +1,9 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import * as S from '../styles';
-import { Title, ErrorMessage } from '../../../generalStyles';
+import { useForm, Controller } from 'react-hook-form';
+import { Form, Button } from 'react-bootstrap';
 
 const Login = ({ setOptions }) => {
-  const { register, handleSubmit, errors } = useForm();
+  const { control, handleSubmit, errors } = useForm();
 
   const submitHandler = (data) => {
     const req = {
@@ -16,32 +15,37 @@ const Login = ({ setOptions }) => {
   };
 
   return (
-    <S.FormWrapper>
-      <Title>Área de Login</Title>
-      <S.Form onSubmit={handleSubmit(submitHandler)}>
-        <S.InputWrapper icon="\f1fa">
-          <S.Input
-            ref={register({ required: true, pattern: /^\S+@\S+$/i })}
-            type="email"
-            name="email"
-            placeholder="email"
-          />
-        </S.InputWrapper>
-        {errors.email?.type === 'required' && <ErrorMessage>Insira um email</ErrorMessage>}
-        {errors.email?.type === 'pattern' && <ErrorMessage>Formato de email inválido</ErrorMessage>}
-        <S.InputWrapper icon="\f084">
-          <S.Input
-            ref={register({ required: true })}
-            type="password"
-            name="password"
-            placeholder="senha"
-          />
-        </S.InputWrapper>
-        {errors.password?.type === 'required' && <ErrorMessage>Insira uma senha</ErrorMessage>}
-        <S.Input type="submit" name="button" value="Login" />
-        <S.Input type="submit" name="button" value="Esqueci a senha" />
-      </S.Form>
-    </S.FormWrapper>
+    <Form onSubmit={handleSubmit(submitHandler)}>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Controller
+          as={Form.Control}
+          name="email"
+          control={control}
+          defaultValue=""
+          rules={{ required: true, pattern: /^\S+@\S+$/i }}
+        />
+
+        {errors.email?.type === 'required' && <Form.Text>Insira um email</Form.Text>}
+        {errors.email?.type === 'pattern' && <Form.Text>Email inválido</Form.Text>}
+      </Form.Group>
+
+      <Form.Group controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Controller
+          as={Form.Control}
+          name="password"
+          control={control}
+          defaultValue=""
+          rules={{ required: true }}
+        />
+        {errors.password?.type === 'required' && <Form.Text>Insira uma senha</Form.Text>}
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Login
+      </Button>
+    </Form>
   );
 };
 export default Login;
