@@ -33,10 +33,10 @@ const Auth = () => {
   }, [dispatch, data]);
 
   return (
-    <section>
+    <>
       <Login setOptions={optionsHandler} />
       <Status loading={loading} error={error} />
-    </section>
+    </>
   );
 };
 export default Auth;
