@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import * as actionTypes from '../../store/userActions';
 
 import Login from './login/login';
-import Status from '../../components/UI/status/status';
+import Status from '../../components/status/status';
 
 import useRequest from '../../hooks/request';
 import axios from '../../helpers/axios';
